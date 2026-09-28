@@ -1865,7 +1865,7 @@ export default class RssDashboardPlugin extends Plugin {
       await this.feedStorageRepository.importPortableDataBundle(
         bundle,
         this.settings,
-        (data) => this.saveData(data),
+        this.getMetadataSaveCallback(),
       );
       this.migrateLegacySettings();
       this.initializeSettingsBackedServices();
@@ -1903,7 +1903,7 @@ export default class RssDashboardPlugin extends Plugin {
       await this.feedStorageRepository.importFeedBundle(
         bundle,
         this.settings,
-        (data) => this.saveData(data),
+        this.getMetadataSaveCallback(),
       );
       this.migrateLegacySettings();
       this.initializeSettingsBackedServices();
@@ -1938,7 +1938,7 @@ export default class RssDashboardPlugin extends Plugin {
       await this.feedStorageRepository.importSettingsBundle(
         bundle,
         this.settings,
-        (data) => this.saveData(data),
+        this.getMetadataSaveCallback(),
       );
       this.migrateLegacySettings();
       this.initializeSettingsBackedServices();

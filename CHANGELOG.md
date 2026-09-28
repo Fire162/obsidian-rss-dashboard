@@ -17,10 +17,7 @@
 - Fixed the **Add feed** and **Auto tag feeds in folder** modals keeping Obsidian's built-in close button in the phone and tablet layout. Obsidian 1.13 renamed that button, so the plugin no longer found it to remove it. [GH Issue #372](https://github.com/amatya-aditya/obsidian-rss-dashboard/issues/372)
 - Fixed clearing a **Default folders** setting, such as **Default YouTube folder**, saving the folder as `/`. New feeds of that type were filed under a folder named `/` that doesn't exist, so they showed at the top level while **Move to folder** didn't mark them as in the root, and the setting showed `/` instead of the default. A cleared field now files new feeds in the root again. [GH Issue #372](https://github.com/amatya-aditya/obsidian-rss-dashboard/issues/372)
 - Fixed preview images no longer being cached after a cached image file was deleted outside the plugin, for example by you or a sync tool, until Obsidian was restarted. Lowering the image cache limit could also fail without saving, and **Clear image cache** said the deleted image could not be removed and kept counting it in the cache size. A cached image file that is already gone now counts as removed. [GH Issue #372](https://github.com/amatya-aditya/obsidian-rss-dashboard/issues/372)
-
-### Known issues
-
-- With the metadata `data.json` in a vault folder, a Portable data bundle, Feed bundle, or Settings bundle import can be lost if Obsidian closes before anything else is saved. Applying a vault folder under **Settings → Storage → Metadata data.json location** now shows a notice about this: after importing, change a setting or mark an article as read before closing Obsidian. The default location in the plugin folder isn't affected. [GH Issue #474](https://github.com/amatya-aditya/obsidian-rss-dashboard/issues/474)
+- Fixed Portable data bundle, Feed bundle, and Settings bundle imports writing metadata to Obsidian's plugin folder instead of the configured vault `data.json` location. Imported data now persists where the plugin will read it after restart. [GH Issue #474](https://github.com/amatya-aditya/obsidian-rss-dashboard/issues/474)
 
 ## 2.7.0 - September 25, 2026
 
